@@ -35,7 +35,7 @@ const queue = new Map();
 
 client.on("ready", () => {
     client.user.setPresence({
-		activity: { name: "out for !commands", type: "WATCHING" },
+		activity: { name: "out for &commands", type: "WATCHING" },
 		status: "online",
 	});
 	console.log(`${client.user.tag} is online and ready to go!!`);
@@ -45,7 +45,7 @@ client.on("ready", () => {
 
 
 client.on("message", async(message) => {
-    const prefix = '!';
+    const prefix = '&';
 
     if(!message.content.startsWith(prefix)) return
     
