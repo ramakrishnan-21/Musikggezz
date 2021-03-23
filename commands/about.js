@@ -2,8 +2,7 @@ const Discord = require("discord.js");
 module.exports.run = (client, message, args, queue, searcher) => {
     const serverQueue = queue.get(message.guild.id)
     const about = `Hey there ${message.author.username}. I am ${client.user.tag} and <@${process.env.WhoLetTheDogsOut_id}> developed me. I am one noob musical bot under development and you can use me to chill out.....If you are kingjames fan then please dont use my bot 😺 !.`;
-    // MessageEmbed - to send styled and formatted messages
-    // Discord feature available only for bots
+     console.log(client.user.id);
     const emb = new Discord.MessageEmbed()
         .setColor("#ffba08")
         .setTitle("The Musikggez")
@@ -14,10 +13,10 @@ module.exports.run = (client, message, args, queue, searcher) => {
         .setDescription(about)
         .addField(
             "Note",
-            `My commands should start with \`!\`.\nNow type \`!commands\``,
+            `My commands should start with \`&\`.\nNow type \`!commands\``,
             true
         );
-    // send the message
+    
     message.channel.send(emb);
 }    
 module.exports.config = {
