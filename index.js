@@ -15,7 +15,7 @@ var http = require('http');  http.createServer(function (req, res) {     res.wri
 function startKeepAlive() {
     setInterval(function() {
         var options = {
-            host: 'your_app_name.herokuapp.com',
+            host: 'musikggezz.herokuapp.com',
             port: 5000,
             path: '/'
         };
