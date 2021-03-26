@@ -16,7 +16,7 @@ function startKeepAlive() {
     setInterval(function() {
         var options = {
             host: 'musikggezz.herokuapp.com',
-            port: 5000,
+            port: process.env.PORT || 5000,
             path: '/'
         };
         http.get(options, function(res) {
