@@ -12,7 +12,7 @@ module.exports.run = (client, message, args, queue, searcher) => {
         .setDescription(about)
         .addField(
             "Note",
-            `My commands should start with \`&\`.\nNow type \`!commands\``,
+            `My commands should start with \`&\`.\nNow type \`&commands\``,
             true
         );
     
