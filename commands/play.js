@@ -2,11 +2,7 @@ const ytdl = require('ytdl-core');
 const ytpl = require('ytpl')
 const Discord = require('discord.js')
 
-            function zeroPad(num, places) {
-                        console.log("ok");
-             var zero = places - num.toString().length + 1;
-               return Array(+(zero > 0 && zero)).join("0") + num;
-}
+
 let timer;
 module.exports.run = async (client, message, args, queue, searcher) => {
     const vc = message.member.voice.channel;
@@ -81,7 +77,7 @@ module.exports.run = async (client, message, args, queue, searcher) => {
                 play (message.guild, serverQueue.songs[0])
             if(playlist) return undefined
 
-            let dur = `${parseInt(song.vLength / 60)}:${ZeroPad(song.vLength - 60 * parseInt(song.vLength / 60),2)}`
+            let dur = `${parseInt(song.vLength / 60)}:${zeroPad(song.vLength - 60 * parseInt(song.vLength / 60),2)}`
             let msg = new Discord.MessageEmbed()
                 .setTitle("Song Added")
                 .addField(song.title, "-----------")
@@ -120,6 +116,11 @@ module.exports.run = async (client, message, args, queue, searcher) => {
                     play(guild, serverQueue.songs[0]);
                 }
             })
+                    function zeroPad(num, places) {
+                        console.log("ok");
+             var zero = places - num.toString().length + 1;
+               return Array(+(zero > 0 && zero)).join("0") + num;
+}
             let dur = `${parseInt(serverQueue.songs[0].vLength / 60)}:${serverQueue.songs[0].vLength - 60 * parseInt(serverQueue.songs[0].vLength / 60)}`
             let msg = new Discord.MessageEmbed()
                 .setTitle("Now Playing:")
