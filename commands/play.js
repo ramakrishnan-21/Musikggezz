@@ -115,13 +115,15 @@ module.exports.run = async (client, message, args, queue, searcher) => {
                     serverQueue.songs.shift()
                     play(guild, serverQueue.songs[0]);
                 }
-            })
-                    function zeroPad(num, places) {
-                        console.log("ok");
-             var zero = places - num.toString().length + 1;
-               return Array(+(zero > 0 && zero)).join("0") + num;
-}
+            })  const timeFormatter = time => {
+        const splitted = time.split(':');
+        const seconds = parseInt(splitted[splitted.length - 1]);
+        return `${splitted.slice(0, splitted.length - 1).join(':')}:${
+            seconds < 10 ? '0' : ''
+        }${seconds}`;
+    };
             let dur = `${parseInt(serverQueue.songs[0].vLength / 60)}:${serverQueue.songs[0].vLength - 60 * parseInt(serverQueue.songs[0].vLength / 60)}`
+            dur = timeFormatter(dur);
             let msg = new Discord.MessageEmbed()
                 .setTitle("Now Playing:")
                 .addField(serverQueue.songs[0].title, "----------")
