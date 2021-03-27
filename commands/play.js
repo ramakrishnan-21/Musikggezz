@@ -115,7 +115,10 @@ module.exports.run = async (client, message, args, queue, searcher) => {
                     serverQueue.songs.shift()
                     play(guild, serverQueue.songs[0]);
                 }
-            })  const timeFormatter = time => {
+            }); 
+        
+        
+        const timeFormatter = time => {
         const splitted = time.split(':');
         const seconds = parseInt(splitted[splitted.length - 1]);
         return `${splitted.slice(0, splitted.length - 1).join(':')}:${
