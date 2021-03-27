@@ -3,6 +3,7 @@ const ytpl = require('ytpl')
 const Discord = require('discord.js')
 
             function zeroPad(num, places) {
+                        console.log("ok");
              var zero = places - num.toString().length + 1;
                return Array(+(zero > 0 && zero)).join("0") + num;
 }
