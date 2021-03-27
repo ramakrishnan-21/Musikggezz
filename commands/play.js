@@ -78,6 +78,14 @@ module.exports.run = async (client, message, args, queue, searcher) => {
             if(playlist) return undefined
 
             let dur = `${parseInt(song.vLength / 60)}:${zeroPad(song.vLength - 60 * parseInt(song.vLength / 60),2)}`
+            const timeFormatter = time => {
+                const splitted = time.split(':');
+                const seconds = parseInt(splitted[splitted.length - 1]);
+                return `${splitted.slice(0, splitted.length - 1).join(':')}:${
+                    seconds < 10 ? '0' : ''
+                }${seconds}`;
+            };
+            dur = timeFormatter(dur);
             let msg = new Discord.MessageEmbed()
                 .setTitle("Song Added")
                 .addField(song.title, "-----------")
