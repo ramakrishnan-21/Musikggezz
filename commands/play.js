@@ -76,8 +76,16 @@ module.exports.run = async (client, message, args, queue, searcher) => {
             if(serverQueue.songs.length === 1)
                 play (message.guild, serverQueue.songs[0])
             if(playlist) return undefined
+                 const timeFormatter = time => {
+        const splitted = time.split(':');
+        const seconds = parseInt(splitted[splitted.length - 1]);
+        return `${splitted.slice(0, splitted.length - 1).join(':')}:${
+            seconds < 10 ? '0' : ''
+        }${seconds}`;
+    };
 
             let dur = `${parseInt(song.vLength / 60)}:${song.vLength - 60 * parseInt(song.vLength / 60),2}`
+            dur = timeFormatter(dur);
             let msg = new Discord.MessageEmbed()
                 .setTitle("Song Added")
                 .addField(song.title, "-----------")
@@ -116,15 +124,15 @@ module.exports.run = async (client, message, args, queue, searcher) => {
                     play(guild, serverQueue.songs[0]);
                 }
             }); 
-        
-        
-        const timeFormatter = time => {
+               const timeFormatter = time => {
         const splitted = time.split(':');
         const seconds = parseInt(splitted[splitted.length - 1]);
         return `${splitted.slice(0, splitted.length - 1).join(':')}:${
             seconds < 10 ? '0' : ''
         }${seconds}`;
     };
+        
+   
             let dur = `${parseInt(serverQueue.songs[0].vLength / 60)}:${serverQueue.songs[0].vLength - 60 * parseInt(serverQueue.songs[0].vLength / 60)}`
             dur = timeFormatter(dur);
             let msg = new Discord.MessageEmbed()
