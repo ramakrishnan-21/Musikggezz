@@ -77,7 +77,7 @@ module.exports.run = async (client, message, args, queue, searcher) => {
                 play (message.guild, serverQueue.songs[0])
             if(playlist) return undefined
 
-            let dur = `${parseInt(song.vLength / 60)}:${zeroPad(song.vLength - 60 * parseInt(song.vLength / 60),2)}`
+            let dur = `${parseInt(song.vLength / 60)}:${song.vLength - 60 * parseInt(song.vLength / 60),2}`
             let msg = new Discord.MessageEmbed()
                 .setTitle("Song Added")
                 .addField(song.title, "-----------")
