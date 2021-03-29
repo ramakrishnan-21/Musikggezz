@@ -11,30 +11,8 @@ const searcher = new YTSearcher({
 });
 
 const client = new Discord.Client();
-var http = require('http');  http.createServer(function (req, res) {     res.writeHead(200, {'Content-Type': 'text/plain'});     res.send('it is running\n'); }).listen(process.env.PORT || 5000); 
-function startKeepAlive() {
-    setInterval(function() {
-        var options = {
-            host: 'musikggezz.herokuapp.com',
-            port: process.env.PORT || 5000,
-            path: '/'
-        };
-        http.get(options, function(res) {
-            res.on('data', function(chunk) {
-                try {
-                    // optional logging... disable after it's working
-                    console.log("HEROKU RESPONSE: " + chunk);
-                } catch (err) {
-                    console.log(err.message);
-                }
-            });
-        }).on('error', function(err) {
-            console.log("Error: " + err.message);
-        });
-    }, 2 * 60 * 1000); // load every 20 minutes
-}
+//var http = require('http');  http.createServer(function (req, res) {     res.writeHead(200, {'Content-Type': 'text/plain'});     res.send('it is running\n'); }).listen(process.env.PORT || 5000); 
 
-startKeepAlive();
 client.commands = new Discord.Collection();
 client.aliases = new Discord.Collection();
 
