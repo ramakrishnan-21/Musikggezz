@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev" : "nodemon index.js"
-},
+    "dev": "nodemon index.js"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -16,7 +16,7 @@
     "nodemon": "^2.0.7",
     "opusscript": "0.0.8",
     "youtube-search": "^1.1.6",
-    "ytdl-core": "^4.5.0",
+    "ytdl-core": "^4.9.1",
     "ytpl": "^2.0.5",
     "ytsearcher": "^1.2.3"
   }
